@@ -19,7 +19,7 @@ int main( int argc, char** argv )
   	int  EVENT_LOOP_DELAY = 40;		// delay for GUI window
                                 	// 40 ms equates to 1000ms/25fps = 40ms per frame	
 	
-  	int spatialRad = 20;			// mean shift parameters
+  	int spatialRad = 10;			// mean shift parameters
   	int colorRad = 20; 
   	int maxPyrLevel = 5;
 
@@ -27,9 +27,9 @@ int main( int argc, char** argv )
   	// otherwise default to capture from attached H/W camera 
 
     if( 
-	  ( argc == 2 && (!(img = imread( argv[1], CV_LOAD_IMAGE_COLOR)).empty()))||
-	  ( argc == 2 && (cap.open(argv[1]) == true )) || 
-	  ( argc != 2 && (cap.open(CAMERA_INDEX) == true))
+		( argc == 2 && (!(img = imread( argv[1], CV_LOAD_IMAGE_COLOR)).empty()))||
+		( argc == 2 && (cap.open(argv[1]) == true )) || 
+		( argc != 2 && (cap.open(CAMERA_INDEX) == true))
 	  )
     {
     	// create window object (use flag=0 to allow resize, 1 to auto fix size)
@@ -60,40 +60,52 @@ int main( int argc, char** argv )
 					exit(0);
 			 	}
 			  
-		  	}	else {
+		  	} else {
 			  
 				// if not a capture object set event delay to zero so it waits
 				// indefinitely (as single image file, no need to loop)
 			  
 				EVENT_LOOP_DELAY = 0;
-		}			  
+			}			  
 		
-		// pyrMeanShiftFiltering(src, dst, sp, sr, max_level=1, termcrit=(CV_TERMCRIT_ITER+CV_TERMCRIT_EPS, 5, 1))
-		// src(CvArr) - the source 8-bit, 3-channel image
-		// dst(CvArr) - the destination image of the same size and format as the source
-		// sp(float)  - the spatial window radus
-		// sr(float)  - the color window radius
-		// max_level(int) - maximum level of the pyramid for the segmentation
-		// termcrit(CvTermCriteria) - termination criteria: when to stop meanshift iterations
-		pyrMeanShiftFiltering( img, res, spatialRad, colorRad, maxPyrLevel );
-		  
-
-		// display image in window
-	
-		imshow(windowName, res);
-		  
-		// start event processing loop (very important,in fact essential for GUI)
-	    // 40 ms roughly equates to 1000ms/25fps = 4ms per frame
-		  
-		key = waitKey(EVENT_LOOP_DELAY);
-
-		if (key == 'x'){
+			// pyrMeanShiftFiltering(src, dst, sp, sr, max_level=1, termcrit=(CV_TERMCRIT_ITER+CV_TERMCRIT_EPS, 5, 1))
+			// src(CvArr) - the source 8-bit, 3-channel image
+			// dst(CvArr) - the destination image of the same size and format as the source
+			// sp(float)  - the spatial window radus
+			// sr(float)  - the color window radius
+			// max_level(int) - maximum level of the pyramid for the segmentation
+			// termcrit(CvTermCriteria) - termination criteria: when to stop meanshift iterations
+			pyrMeanShiftFiltering( img, res, spatialRad, colorRad, maxPyrLevel );
 			
-	   		// if user presses "x" then exit
-			
-			std::cout << "Keyboard exit requested, now exiting." << std::endl;
-	   		keepProcessing = false;
-		  } 
+
+			// display image in window
+		
+			imshow(windowName, res);
+			  
+			// start event processing loop (very important,in fact essential for GUI)
+		    // 40 ms roughly equates to 1000ms/25fps = 4ms per frame
+			  
+			key = waitKey(EVENT_LOOP_DELAY);
+
+			if (key == 'n') {
+				std::cout << "\nspatialRad = " << spatialRad;
+				std::cout << "\ncolorRad = " << colorRad;
+				std::cout << "\nmaxPyrLevel = " << maxPyrLevel;
+
+				EVENT_LOOP_DELAY = 6000;
+			}
+
+			if (key == 's') {
+				EVENT_LOOP_DELAY = 0;
+			}
+
+			if (key == 'x') {
+				
+		   		// if user presses "x" then exit
+				
+				std::cout << "Keyboard exit requested, now exiting." << std::endl;
+		   		keepProcessing = false;
+			} 
 	  }
      
 	  // the camera will be deinitialized automatically in VideoCapture destructor
