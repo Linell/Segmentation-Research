@@ -88,11 +88,13 @@ int main( int argc, char** argv )
 			key = waitKey(EVENT_LOOP_DELAY);
 
 			if (key == 'n') {
-				std::cout << "\nspatialRad = " << spatialRad;
-				std::cout << "\ncolorRad = " << colorRad;
-				std::cout << "\nmaxPyrLevel = " << maxPyrLevel;
+				std::cout << "\n********************";
+				std::cout << "\nspatialRad : " << spatialRad;
+				std::cout << "\ncolorRad   : " << colorRad;
+				std::cout << "\nmaxPyrLevel: " << maxPyrLevel;
 
-				EVENT_LOOP_DELAY = 6000;
+				imshow(windowName, res);
+				pyrMeanShiftFiltering( img, res, spatialRad, colorRad, maxPyrLevel );
 			}
 
 			if (key == 's') {
