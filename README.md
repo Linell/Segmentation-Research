@@ -4,6 +4,8 @@ Department of Computer Science
 
 This research uses OpenCV and the Microsoft Kinect to automatically count boards in a bunk of lumber. It is being actively developed for my undergraduate thesis.
 
+The current phase of research is directed into using the mean shift algorithm. However, the end goal is to count the number of objects found inside of an image. I am having difficulty figuring out how to do this. It seems like something that is easy enough and is just going over my head. Hey, I suppose that's the whole point of research.
+
 To run this code, I usually end up jumping through rather
 a few hoops. You'll need OpenCV and Macports installed, at least. For me to 
 run this on my Macbook, I need the following commands:
@@ -16,3 +18,5 @@ Sometimes this doesn't exactly work though, for too many silly reasons to even b
 ```
 sudo port install pkgconfig
 ```
+
+I suggest making yourself a function to run it for you. Mine is called `doOpenCV` and it *really* helps me out with running the programs.
