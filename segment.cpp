@@ -19,9 +19,13 @@ int main( int argc, char** argv )
   	int  EVENT_LOOP_DELAY = 40;		// delay for GUI window
                                 	// 40 ms equates to 1000ms/25fps = 40ms per frame	
 	
-  	int spatialRad = 10;			// mean shift parameters
+  	int spatialRad = 10;			// mean shift filtering parameters
   	int colorRad = 20; 
   	int maxPyrLevel = 5;
+
+  	int level = 10;
+  	int threshold1 = 10;
+  	int threshold2 = 20;
 
   	// if command line arguments are provided try to read image/video_name
   	// otherwise default to capture from attached H/W camera 
@@ -76,7 +80,6 @@ int main( int argc, char** argv )
 			// max_level(int) - maximum level of the pyramid for the segmentation
 			// termcrit(CvTermCriteria) - termination criteria: when to stop meanshift iterations
 			pyrMeanShiftFiltering( img, res, spatialRad, colorRad, maxPyrLevel );
-			
 
 			// display image in window
 		
