@@ -22,10 +22,24 @@ int main( int argc, char** argv ) {
 	}
 
 	Mat dst, cdst;
+	/*
+		Canny(image, edges, threshold1, threshold2, aperture_size=3)
+		- Image is a single-channel 8-bit input image
+		- Edges is an output edge map; it has the same size and type as image.
+		- Threshold1 is the first threshold for the hysteresis procedure
+		- Threshold2 is the second threshold for the hysteresis procedure.
+		- ApertureSize is the aperture size for the Sobel() operator
+
+		I am going to modify t1 and t2 variables. I have tried the following:
+		50, 200 = bad
+		100, 200 = worse
+		25, 200 = more lines, still not much clarity
+		50, 100 = more lines, better clarity
+	*/
 	Canny(src, dst, 50, 200, 3);
 	cvtColor(dst, cdst, CV_GRAY2BGR);
 
-	#if 0
+	#if 1
 		vector<Vec2f> lines;
 		HoughLines(dst, lines, 1, CV_PI/180, 100, 0, 0 );
 
@@ -50,7 +64,7 @@ int main( int argc, char** argv ) {
 			line( cdst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0,0,255), 3, CV_AA);
 		}
 	#endif
-		
+
 	imshow("source", src);
 	imshow("detected lines", cdst);
 
