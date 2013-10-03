@@ -175,7 +175,7 @@ int main(int argc, char** argv)
 		return 0;
 	}
 
-	original.release();
+	img.release();
 	inrange.release();
 	gray.release();
 	pyr.release();
