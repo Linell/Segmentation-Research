@@ -81,8 +81,7 @@ int main( int argc, char** argv )
 			// termcrit(CvTermCriteria) - termination criteria: when to stop meanshift iterations
 			pyrMeanShiftFiltering( img, res, spatialRad, colorRad, maxPyrLevel );
 
-			// display image in window
-		
+			// display image in window		
 			imshow(windowName, res);
 			  
 			// start event processing loop (very important,in fact essential for GUI)

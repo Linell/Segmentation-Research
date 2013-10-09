@@ -20,3 +20,5 @@ sudo port install pkgconfig
 ```
 
 I suggest making yourself a function to run it for you. Mine is called `doOpenCV` and it *really* helps me out with running the programs.
+
+It's also worth noting that sometimes MacPorts breaks for no good reason. Usually right before your adviser looks at your code. http://charles.lescampeurs.org/2008/08/05/sudo-port-command-not-found this may help.
