@@ -80,7 +80,7 @@ int main( int argc, char** argv )
 			// max_level(int) - maximum level of the pyramid for the segmentation
 			// termcrit(CvTermCriteria) - termination criteria: when to stop meanshift iterations
 			pyrMeanShiftFiltering( img, res, spatialRad, colorRad, maxPyrLevel );
-
+			
 			// display image in window		
 			imshow(windowName, res);
 			  
