@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Board Counting Research by Linell</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Board Counting Research</h1>
+        <p class="header">Automated counting of boards for lumber yards using computer vision techniques.</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/Linell/Segmentation-Research/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/Linell/Segmentation-Research/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/Linell/Segmentation-Research">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/Linell">Linell</a></p>
+
+
+      </header>
+      <section>
+        <h3>
+<a name="board-counting-research" class="anchor" href="#board-counting-research"><span class="octicon octicon-link"></span></a>Board Counting Research.</h3>
+
+<p>Research directed towards counting boards in a bunk of lumber using various computer vision techniques. The research is being conducted for the University of Southern Mississippi's Honors College undergraduate thesis by me, Linell Bonnette.</p>
+
+<p>It is currently in early stages, although it does show some progress.</p>
+
+<h3>
+<a name="current-state-of-research" class="anchor" href="#current-state-of-research"><span class="octicon octicon-link"></span></a>Current State of Research</h3>
+
+<p>The focus of the research has shifted from counting the boards using solely photograph images into an approach that will utilize depth data from the Microsoft Kinect. Hopefully, this data will allow for greater difference in each board. Previous methods have encountered problems with differentiating between boards, resulting in an inaccurate count.</p>
+
+<p>I am also transitioning from the stage of counting the boards to working on more of a <em>block tally</em>. Traditionally, an operator can block tally lumber that is all very similar in height, width, and length. However, with the Kinect, the block tally will be based on the exact width and height of the bunk itself, which should be more accurate. This is not as accurate as I would like for the system to be, but it is progress in the correct direction.</p>
+
+<h3>
+<a name="download-and-run" class="anchor" href="#download-and-run"><span class="octicon octicon-link"></span></a>Download and Run</h3>
+
+<p>I have had <em>a lot</em> of trouble getting everything to run correctly. OpenCV's set up is different for every operating system and is not always easy. Drivers for the Kinect are either locked into Microsoft Windows or is not very well supported, in my experience. Regardless, here are the requirements to run the code:</p>
+
+<ul>
+<li>OpenCV - used for the majority of the heavy lifting in the algorithmic department. </li>
+<li>Kinect drivers - you can use whichever drivers you want, assuming that you are able to get the depth data and color images. I have not committed myself to a specific set of drivers yet, and will update this when I do.</li>
+</ul>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
