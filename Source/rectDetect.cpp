@@ -150,7 +150,7 @@ int main(int argc, char** argv)
 			// Do stuff
 			inRange(
 				img,
-				Scalar(30, 30, 0), // Minimum filtering value (if color is greater than or equal to this)
+				Scalar(30, 30, 0), 	  // Minimum filtering value (if color is greater than or equal to this)
 				Scalar(255, 255, 70), // Max filtering value (if color is less than this)
 				inrange
 			);
